@@ -29,7 +29,7 @@ function DashPlatform(log, config, api) {
 DashPlatform.prototype.configureAccessory = function(accessory) {
   var self = this;
 
-  accessory.reachable = true
+  accessory.reachable = true;
   accessory
     .getService(Service.StatelessProgrammableSwitch)
     .getCharacteristic(Characteristic.ProgrammableSwitchEvent)
@@ -75,6 +75,7 @@ DashPlatform.prototype.addAccessory = function(mac, name) {
   var uuid = UUIDGen.generate(mac);
 
   var newAccessory = new Accessory(name, uuid, 15);
+  newAccessory.reachable = true;
   newAccessory.context.mac = mac;
   newAccessory.addService(Service.StatelessProgrammableSwitch, name);
   newAccessory
