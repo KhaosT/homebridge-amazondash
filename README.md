@@ -2,6 +2,8 @@
 
 Amazon Dash plugin for [Homebridge](https://github.com/nfarina/homebridge)
 
+***As of iOS 10.2, Apple's Home app still don't support programable switch. Please use third party HomeKit app like Home or Hesperus to setup automation.***
+
 ## Installation
 
 1. Follow the [instruction](https://github.com/hortinstein/node-dash-button) to setup node-dash-button and figure out the MAC Address of the Dash Button.
