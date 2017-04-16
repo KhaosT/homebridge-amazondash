@@ -35,6 +35,13 @@ DashPlatform.prototype.configureAccessory = function(accessory) {
     .getCharacteristic(Characteristic.ProgrammableSwitchEvent)
     .setValue(0);
 
+  accessory
+    .getService(Service.StatelessProgrammableSwitch)
+    .getCharacteristic(Characteristic.ProgrammableSwitchEvent)
+    .setProps({
+      maxValue: 0
+    });
+
   var accessoryMAC = accessory.context.mac;
   self.accessories[accessoryMAC] = accessory;
 }
@@ -80,6 +87,14 @@ DashPlatform.prototype.addAccessory = function(mac, name) {
   newAccessory.reachable = true;
   newAccessory.context.mac = mac;
   newAccessory.addService(Service.StatelessProgrammableSwitch, name);
+
+  newAccessory
+  .getService(Service.StatelessProgrammableSwitch)
+  .getCharacteristic(Characteristic.ProgrammableSwitchEvent)
+  .setProps({
+    maxValue: 0
+  });
+
   newAccessory
   .getService(Service.AccessoryInformation)
   .setCharacteristic(Characteristic.Manufacturer, "Amazon")
