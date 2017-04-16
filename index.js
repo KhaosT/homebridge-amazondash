@@ -30,10 +30,6 @@ DashPlatform.prototype.configureAccessory = function(accessory) {
   var self = this;
 
   accessory.reachable = true;
-  accessory
-    .getService(Service.StatelessProgrammableSwitch)
-    .getCharacteristic(Characteristic.ProgrammableSwitchEvent)
-    .setValue(0);
 
   accessory
     .getService(Service.StatelessProgrammableSwitch)
@@ -73,10 +69,7 @@ DashPlatform.prototype.dashEventWithAccessory = function(accessory) {
     .getService(Service.StatelessProgrammableSwitch)
     .getCharacteristic(Characteristic.ProgrammableSwitchEvent);
 
-  if (targetChar.value === 0) {
-    targetChar.setValue(1);
-    setTimeout(function(){targetChar.setValue(0);}, 10000);
-  }
+  targetChar.setValue(0);
 }
 
 DashPlatform.prototype.addAccessory = function(mac, name) {
